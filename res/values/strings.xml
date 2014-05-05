@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VCCompostRC</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Mover">Iniciar Movimiento</string>
+    <string name="Detener">Detener Operación</string>
+    <string name="chanSer">Cambiar Servidor</string>
+    <string name="title_activity_set_server">Cambiar Servidor</string>
+    
+    <string name="Server_IP">10.0.0.6</string>
+    <string name="Server_Port">2000</string>
+    <string name="OK">Aceptar</string>
+    <string name="Exit">Cerrar Aplicación</string>
+    <string name="Rutina">Iniciar Rutina</string>
+
+</resources>

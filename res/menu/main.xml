@@ -1,0 +1,38 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.vagoscorp.vccompost.rc.MainActivity" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/Mover"
+        android:orderInCategory="1"
+        android:title="@string/Mover">
+    </item>
+    <item
+        android:id="@+id/Detener"
+        android:orderInCategory="2"
+        android:title="@string/Detener">
+    </item>
+    <item
+        android:id="@+id/chanServer"
+        android:orderInCategory="3"
+        android:title="@string/chanSer">
+        
+    </item>
+    <item
+        android:id="@+id/Rutina"
+        android:orderInCategory="4"
+        android:title="@string/Rutina">
+    </item>
+    <item
+        android:id="@+id/exit"
+        android:orderInCategory="5"
+        android:title="@string/Exit">
+        
+    </item>
+
+</menu>
