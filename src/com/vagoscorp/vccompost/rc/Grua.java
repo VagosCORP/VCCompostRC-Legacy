@@ -61,15 +61,15 @@ public class Grua {
 	this.dx = (float) this.Width / 1000;
 	this.dy = (float) this.Height / 1000;
 	this.canvas.drawColor(Color.BLACK);
-	yInicial = Height/2;
-	yActual = Height/2;
-	yDeseado = Height/2;
-	drawGru(this.xInicial, this.yInicial, gruI, carI);
+//	yInicial = Height/2;
+//	yActual = Height/2;
+//	yDeseado = Height/2;
+	drawGruv(this.xInicial, this.yInicial, gruI, carI);
 	if (!enMovimiento)
-		drawGrut(gruPaint, carPaint);
+		drawGruvt(gruPaint, carPaint);
 	else {
-		drawGru(this.xDeseado, this.yDeseado, gruD, carD);
-		drawGru(this.xActual, this.yActual, gruPaint, carPaint);
+		drawGruv(this.xDeseado, this.yDeseado, gruD, carD);
+		drawGruv(this.xActual, this.yActual, gruPaint, carPaint);
 	}
 //	drawtouch(canvas);
 	gruHolder.unlockCanvasAndPost(this.canvas);
@@ -118,15 +118,15 @@ public class Grua {
 		this.ex = (float)(this.Width - (float)2*this.limX) / 1000;
 		this.ey = (float)(this.Height - (float)2*this.limY) / 1000;
 		float mwPat = wPat / 2;
-		yTouch = Height/2;
+//		yTouch = Height/2;
 		if (xTouch <= this.limX)
 			xTouch = this.limX;
-//		if (yTouch <= hPat)
-//			yTouch = hPat;
+		if (yTouch <= hPat)
+			yTouch = hPat;
 		if (xTouch >= this.Width - this.limX)
 			xTouch = this.Width - this.limX;
-//		if (yTouch >= this.Height - hPat)
-//			yTouch = this.Height - hPat;
+		if (yTouch >= this.Height - hPat)
+			yTouch = this.Height - hPat;
 		this.canvas.drawLine(wPat, 0, wPat, this.Height, gruPaint);
 		this.canvas.drawLine(mwPat, 0, mwPat, this.Height, gruPaint);
 		this.canvas.drawLine(0, 0, 0, this.Height, gruPaint);
@@ -169,6 +169,37 @@ public class Grua {
 		this.canvas.drawRect(x - wPat, this.Height - hPat, x + wPat, this.Height, grua);
 		this.canvas.drawRect(x - wGru, 0, x + wGru, this.Height, grua);
 		this.canvas.drawRect(x - wCar, y - hCar, x + wCar, y + hCar, carr);
+	}
+	
+	public void drawGruvt(/* Canvas canvas */Paint grua, Paint carr) {
+		float wPat = this.dx * 100;
+		float hPat = this.dy * 100;
+		float wCar = this.dx * 60;
+		float hCar = this.dy * 130;
+		float wGru = this.dx * 35;
+		this.limX = hPat;
+		this.limY = hPat + hCar;
+		this.ex = (float)(this.Width - (float)2*this.limX) / 1000;
+		this.ey = (float)(this.Height - (float)2*this.limY) / 1000;
+		float mhPat = hPat / 2;
+		if (xTouch <= wPat)
+			xTouch = wPat;
+		if (yTouch <= this.limY)
+			yTouch = this.limY;
+		if (xTouch >= this.Width - wPat)
+			xTouch = this.Width - wPat;
+		if (yTouch >= this.Height - this.limY)
+			yTouch = this.Height - this.limY;
+		this.canvas.drawLine(0, hPat, this.Width, hPat, gruPaint);
+		this.canvas.drawLine(0, mhPat, this.Width, mhPat, gruPaint);
+		this.canvas.drawLine(0, 0, this.Width, 0, gruPaint);
+		this.canvas.drawLine(0, this.Height - hPat, this.Width, this.Height - hPat, gruPaint);
+		this.canvas.drawLine(0, this.Height - mhPat, this.Width, this.Height - mhPat, gruPaint);
+		this.canvas.drawLine(0, this.Height - 1, this.Width, this.Height - 1, gruPaint);
+		this.canvas.drawRect(xTouch - wPat, 0, xTouch + wPat, hPat, grua);
+		this.canvas.drawRect(xTouch - wPat, this.Height - hPat, xTouch + wPat, this.Height, grua);
+		this.canvas.drawRect(xTouch - wGru, 0, xTouch + wGru, this.Height, grua);
+		this.canvas.drawRect(xTouch - wCar, yTouch - hCar, xTouch + wCar, yTouch + hCar, carr);
 	}
 	
 	public void drawtouch(Canvas canvas) {
